@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="TU.js"></script>
+</head>
+
+<body style="width:60%; margin-left:20%;">
+    <h1 class="bad" id="test1" style="text-align:center;">TU.js Examples</h1>
+    <h2 style="text-align: center;" id="test2" onclick="TU.createClock('test2');">Click to convert to clock</h2>
+    <button type="Button" id="selector" onclick="TU.CloseWindow()">Close</button> <label>Closes the current browser</label>
+    <h2 style="text-align:center;">Calc</h2>
+    <div id="calculate" style="border-bottom: 2px solid black;">
+        <input class="test1" id="first" />
+        <input class="test1" id="second" onkeyup="TU.Calc('first', 'second', '+', 'test1')" />
+        <select name="" id="selectOperator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <button type="Button" class="test1" id="selector1" onclick="addit()">Calculate</button>
+        <button type="Button" class="test1" id="selector2" onclick="TU.AddNumbers('.test1')">Renumber</button>
+        <label id="lblCalc"></label>
+        <br><br>
+    </div>
+
+    <h2 style="text-align:center;">Contains</h2>
+    <div id="containers" style="border-bottom: 2px solid black;">
+        <button type="Button" id="selector4" onclick="TU.E('lblContains').innerHTML = TU.Contains('lblContainsEx', 'W')">Contains</button>
+        <label id="lblContainsEx">if there is an W in this sentence it will return true-----</label>
+        <label id="lblContains"></label>
+        <br><br>
+    </div>
+
+    <h2 style="text-align:center;">Date Calc</h2>
+    <div id="dater" style="border-bottom: 2px solid black;">
+        <input type="Date" name="name" id="date1">
+        <input type="Date" name="name" id="date2">
+        <button type="button" name="button" id="btnDateDiff"
+                onclick="TU.DateDifference('date1', 'date2', 'lblDate')">
+            Calculate the difference in Dates
+        </button>
+        <label id="lblDate"></label>
+        <br><br>
+    </div>
+    <h2 style="text-align:center;">Table Demo</h2>
+    <div id="TableDemo" style="border-bottom: 2px solid black;">
+        <table style="width:40%" id="tblDemo">
+            <tr>
+                <th><input type="checkbox" id="headCheckBox" onclick="TU.tableController().SelectAllCheckBoxes(this, 'tblDemo');"></th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Status</th>
+            </tr>
+            <tr> <td> <input type="checkbox" id="chkbx"></td> <td>John</td><td>Hammond</td>  <td>50</td>  <td>In Progress</td>  </tr>
+            <tr> <td><input type="checkbox" id="chkbx1"></td>   <td>Mitch</td>  <td>Man</td>  <td>25</td>  <td>Complete</td>  </tr>
+            <tr> <td><input type="checkbox" id="chkbx2"></td>   <td>Kris</td>  <td>Kringle</td>  <td>232</td>  <td>Not Started</td>  </tr>
+            <tr> <td><input type="checkbox" id="chkbx3"></td>   <td>Peter</td>  <td>Pan</td>  <td>13?</td><td>Complete</td>  </tr>
+            <tr> <td><input type="checkbox" id="chkbx4"></td>   <td>Albus</td>  <td>Dumbledore</td>  <td>132</td>  <td>Not Started</td>  </tr>
+            <tr> <td><input type="checkbox" id="chkbx5"></td>   <td>Jim</td>  <td>Halpert</td>  <td>32</td>  <td>In progress</td>  </tr>
+            <tr> <td><input type="checkbox" id="chkbx6"></td>   <td>Kurt</td>  <td>Russell</td>  <td>42</td>  <td>complete</td>  </tr>
+            <tr> <td><input type="checkbox" id="chkbx7"></td>   <td>Tim</td>  <td>Burton</td>  <td>51</td>  <td>Not Started</td>  </tr>
+        </table>
+        <button type="button" name="button" onclick="findStatus()">Visualize Status</button>
+        <input name="name" value="" placeholder="Last Name" id="gvSearch" />
+        <button type="button" name="button" onclick="TU.tableController().RowToArray('tblDemo', 'gvSearch', 1)">Row To Array input</button>
+        <button type="button" name="button" onclick="TU.tableController().RowToArray('tblDemo', 'Dumbledore', 1)">Row To Array Value</button>
+        <input name="name" value="" placeholder="First Name" onkeyup="TU.tableController().SearchGridview(this, 'tblDemo', 1)" />
+        <input name="name" value="" placeholder="Status" onkeyup="TU.tableController().SearchGridview(this, 'tblDemo', 4)" />
+        <label id="lblTableDemo"></label>
+        <br><br>
+    </div>
+    <div id="" style="border-bottom: 2px solid black; padding-bottom: 2%;">
+        <h2 style="text-align:center;">isBlank</h2>
+        <input type="text" name="name" id="txtIsBlank" />
+        <button type="button" onclick="findifblank()" name="button">Check if Input is blank</button>
+        <label id="lblIsBlank"></label>
+        <br>
+    </div>
+
+    <div id="" style="border-bottom: 2px solid black; padding-bottom: 2%;">
+        <h2 style="text-align:center;">Add/Remove Events</h2>
+        <button type="button" name="button" id="eventButton">Click for Event</button>
+        <button type="button" name="button" onclick="addAnEvent()">Add Event</button>
+        <button type="button" name="button" onclick="RemoveAnEvent()">Remove Event</button>
+        <br>
+    </div>
+</body>
+
+<script type="text/javascript">
+// the below three functions are for add/remove events.
+function addAnEvent(){
+   TU.addEvent(TU.E('eventButton'), 'click', giveAlert);
+}
+function RemoveAnEvent(){
+   TU.removeEvent(TU.E('eventButton'), 'click', giveAlert);
+}
+function giveAlert(){
+  alert('The Event is wired');
+}
+
+//function that is called from the calc buttons are called
+function addit(){
+  var op = TU.E('selectOperator').value;
+  TU.E('test4').value = TU.Calc('first', 'second', op, 'lblCalc');
+}
+
+//changes the background colors of the rows based on the status column
+function findStatus(){
+  var tbl =  TU.tableController().ColumnToArray('tblDemo', 4);
+  var elem =  TU.E('tblDemo');
+  for(itme in tbl){
+    console.log(tbl[itme]);
+    if(tbl[itme].toLowerCase() === 'complete'){
+      elem.rows[++itme].style.background = "green"
+    }
+    if(tbl[itme].toLowerCase() === 'in progress'){
+      elem.rows[++itme].style.background = "orange"
+    }
+    if(tbl[itme].toLowerCase() === 'not started'){
+      elem.rows[++itme].style.background = "red"
+    }
+  }
+}
+
+//checks if the textbox is blank
+function findifblank(){
+  TU.E('lblIsBlank').innerHTML = TU.isBlank('txtIsBlank');
+}
+</script>
+</html>

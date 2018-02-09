@@ -1,0 +1,174 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Blackstone.Master.cs" Inherits="CapstoneBlackstone.Blackstone" %>
+
+<!DOCTYPE html>
+
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-compatible" content="IE-edgeg" />
+    <!--tells browser to use latest rendering engine-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- set page width to size of device and zoom level to 1 -->
+
+    <title>Blackstone LaunchPad Team Building Platform</title>
+    <link rel="icon" href="https://i.imgur.com/tlkRTSY.jpg" />
+
+    <link rel ="stylesheet" type="text/css" href="LoginStyleSheet.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" integrity="sha384-epMyz4hu1ASjjUDbf0V201n5v31rubA1aQx3RVU6DI5uvujzgHWUnQVN5cr8UY5p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" integrity="sha384-CmLV3WR+cw/TcN50vJSYAs2EAzhDD77tQvGcmoZ1KEzxtpl2K5xkrpFz9N2H9ClN" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" integrity="sha384-epMyz4hu1ASjjUDbf0V201n5v31rubA1aQx3RVU6DI5uvujzgHWUnQVN5cr8UY5p" crossorigin="anonymous"/>
+    <script src="https://use.fontawesome.com/95aa67ffa4.js"></script>
+
+    <style>
+        html, body {
+            
+            font-family:"Segoe UI",Arial,sans-serif;
+            background-color:white;
+            background-image:url("Images/Red_DiamondPattern.jpg"); /*Hides the slither of white background beneath create profile*/
+           
+        }
+
+        #wrap {
+            min-height: 100%;
+        }
+
+        #main {
+            overflow: auto;
+        }
+
+        footer {
+            position: relative;
+            margin-bottom: -50px;
+            height: 50px;
+            clear: both;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+     /*Styling for Nav bar elements to the right*/
+        .collapse.navbar-collapse li a {
+            color: black; 
+            font-size:18px;
+            /*border-left:2px solid black;*/
+        }
+         .collapse.navbar-collapse li a:hover {
+            color:#8f1010; 
+            text-decoration:underline;
+        }
+    /*Styling ends*/
+
+        .collapse.navbar-collapse li ul a {
+            color: black;
+        }
+        .navbar-header{
+            height: 100px; 
+            width: 338px;
+
+        }
+        /* Customize container */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 1000px;
+                height: 100%;
+            }
+        }
+
+        .container-narrow > hr {
+            margin: 30px 0;
+        }
+
+        .back {
+            z-index: 0;
+            background-image:url("Images/Red_DiamondPattern.jpg");
+            /*background-color: #899197;*/
+            margin-top: -20px;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        #btnLogOut{
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+             <nav class="navbar navbar-inverse" style="background-color:white;border:3px solid black;">
+                 <div class="container-fluid">
+                     <div class="row">
+                         <div class="col-md-3">
+                            <div class="navbar-header">
+                                <div class="navbar-left">
+                                    <img src="Images/BSLP.jpg"  style="height: 100px; width: 338px;"/>
+
+                                </div>
+                            </div>
+                            </div>
+                         <div class="col-md-4">
+                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                             </div>
+                         <div class="col-md-5">
+                        <asp:Panel runat="server">
+                        <div class="collapse navbar-collapse" id="myNavbar"">
+                            <ul class="nav navbar-nav navbar-left">
+                                <li><a href="CreateVenture.aspx">Create Venture</a></li>
+                                <li><a href="Search.aspx">Search</a></li>
+                                <li><a href="ExpertPage.aspx">My Profile</a></li>
+                            </ul>
+                            
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><asp:Label ID="Label1" runat="server" style="font-style:italic; color:white;" Text="My Venture Company List">&nbsp;</asp:Label>
+                                    <asp:DropDownList ID="ddlMyVentures" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlMyVentures_SelectedIndexChanged" 
+                                    style="border:none; font-family:Georgia, 'Times New Roman', Times, serif; font-size:18px;" AutoPostBack="true"></asp:DropDownList>&nbsp;&nbsp;</li>
+                                <li><asp:Label ID="lblLoggedIn" runat="server" style="font-style:italic; color: black;Font-Size:16px;" ></asp:Label>&nbsp;</li>
+                                <li><asp:Button ID="btnLogOut" runat="server" OnClick="lb_Logout_Click" Text="LogOut" /></li>
+                            </ul>
+                        </div>
+                        </asp:Panel>
+                             </div>
+                    </div><!--end row-->
+                </div>
+            </nav>
+
+        <div class="back" style="padding-top:50px; padding-bottom:120px;">
+            <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="True" runat="server"></asp:ScriptManager>
+            <div class="container" style="background-color:#ffffff; z-index:1; box-shadow: 7px 7px 7px #746262; padding-top:10px;border:3px solid black;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    <!--where content pages can plug in their content-->
+                    
+                </asp:ContentPlaceHolder>
+            </div><!--container-->
+        </div>
+        <!-- Footer Begin-->
+
+         <div class="navbar navbar-default navbar-fixed-bottom" style="background-color:black; position:fixed; color:white; align-content:center; padding-top:5px;">
+                    <div class="container">
+                        <p style="text-align:center;">Monday - Friday 9:00am - 5:00pm&nbsp; 1755 North 13th Street, Lower Level, Philadelphia, PA 19122<br />
+                    launch@temple.edu    (215) 204-2499<br /></p>
+                    </div>
+                </div>
+        <!--Footer End-->
+       
+    </form>
+</body>
+</html>

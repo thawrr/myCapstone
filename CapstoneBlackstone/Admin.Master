@@ -1,0 +1,215 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="CapstoneBlackstone.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-compatible" content="IE-edgeg" />
+    <!--tells browser to use latest rendering engine-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- set page width to size of device and zoom level to 1 -->
+
+    <title>"]["eam Building</title>
+    <link rel="icon" href="https://i.imgur.com/tlkRTSY.jpg" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" integrity="sha384-CmLV3WR+cw/TcN50vJSYAs2EAzhDD77tQvGcmoZ1KEzxtpl2K5xkrpFz9N2H9ClN" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed" integrity="sha384-epMyz4hu1ASjjUDbf0V201n5v31rubA1aQx3RVU6DI5uvujzgHWUnQVN5cr8UY5p" crossorigin="anonymous"/>
+    <script src="https://use.fontawesome.com/95aa67ffa4.js"></script>
+
+    <link href="CSS/StyleSheet.css" rel="stylesheet" /><link href="CSS/footer.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" integrity="sha384-Y5cgvAigcTOTaObjiReosnMvQCzeJTHVQ3ezBmzGzM1g0Armw98SOB73bclZHywS" crossorigin="anonymous"/>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" integrity="sha384-Z9D45cp3elqajO+xEyjRTIK1Gr3eYsXiyCPIKNog1sIQzpo2fqFDqFdADGiJjzOv" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#gvDisplayExperts').dataTable({
+                stateServer: true
+            });
+        });
+
+        
+    </script>
+
+      <script type="text/javascript">
+        $(document).ready(function () {
+            $('#gvDisplayVentures').dataTable({
+                stateServer: true
+            });
+        });
+
+        
+    </script>
+
+
+    <style type="text/css">
+        html, body {
+            
+            font-family:"Segoe UI,Arial,sans-serif";
+            background-color:white;
+            background-image:url("Images/Red_DiamondPattern.jpg"); /*Hides the slither of white background beneath create profile*/
+           
+        }
+
+        #wrap {
+            min-height: 100%;
+        }
+
+        #main {
+            overflow: auto;
+        }
+
+        footer {
+            position: relative;
+            margin-bottom: -50px;
+            height: 50px;
+            clear: both;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+     /*Styling for Nav bar elements to the right*/
+        .collapse.navbar-collapse li a {
+            color: white; 
+            font-size:18px;
+            /*border-left:2px solid black;*/
+        }
+         .collapse.navbar-collapse li a:hover {
+            color:#8f1010; 
+            text-decoration:underline;
+        }
+    /*Styling ends*/
+
+        .collapse.navbar-collapse li ul a {
+            color: black;
+        }
+        .navbar-header{
+            height: 100px; 
+            width: 338px;
+            color: white;
+        }
+        /* Customize container */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 1200px;
+                height: 100%;
+            }
+        }
+
+        .container-narrow > hr {
+            margin: 30px 0;
+        }
+
+        .back {
+            z-index: 0;
+            background-image:url("Images/Red_DiamondPattern.jpg");
+            /*background-color: #899197;*/
+            margin-top: -20px;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        #btnLogOut{
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .cssPager td {
+            padding-left: 4px;
+            padding-right: 4px;
+            text-align: center;
+        }
+
+        .gvfooter {
+            height: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+            .gvfooter td {
+                border: none;
+            }
+
+            .gvfooter th {
+                border: none;
+            }
+
+        .grid td, .grid th {
+            padding-left: 5px;
+            padding-right: 5px;
+            text-align: center;
+        }
+    </style>
+    
+    
+  
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!--NavBar-->
+        <nav class="navbar navbar-inverse" style="background-color: #000000; color: white">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-left">
+                        <img src="https://i.imgur.com/aLpB2vo.png" style="height: 60px; width: 365px;" />
+                    </div>
+                </div>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="Admin.aspx">Admin Home</a></li> 
+                        <li><a href="AdminDashboard.aspx">Admin Dashboard</a></li>
+                        <li><a href="AdminSearch.aspx">Search</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <asp:Label ID="lblLoggedIn" runat="server" Font-Bold="True" ForeColor="White"></asp:Label>&nbsp;</li>
+                        
+                        <li><asp:Button ID="btnLogOut" runat="server" OnClick="lb_Logout_Click" Text="LogOut" /></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--navBar End-->
+
+        <div class="back">
+            <div class="container" style="background-color: white; z-index: 2;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    <!--where content pages can plug in their content-->
+                    <div class="container">
+
+                     
+                    </div>
+   
+   
+                </asp:ContentPlaceHolder>
+            </div>
+            <!--container-->
+        </div>
+    </form>
+</body>
+</html>
